@@ -1,6 +1,6 @@
 package com.shadorc.shadbot.core.command;
 
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 
 public abstract class SubCmd extends Cmd {
 
@@ -18,7 +18,7 @@ public abstract class SubCmd extends Cmd {
     }
 
     protected SubCmd(GroupCmd groupCmd, CommandCategory category, CommandPermission permission, String name,
-                     String description, ApplicationCommandOptionType type) {
+                     String description, ApplicationCommandOption.Type type) {
         super(category, permission, name, description, type);
         this.groupCmd = groupCmd;
     }

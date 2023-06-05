@@ -3,8 +3,8 @@ package com.shadorc.shadbot.command.setting;
 import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.channel.TextChannel;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import discord4j.rest.util.Permission;
 import reactor.core.publisher.Mono;
 
@@ -21,7 +21,7 @@ public class NSFWSetting extends SubCmd {
         this.addOption(option -> option.name("action")
                 .description("Change the NSFW state of the server")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Action.class)));
     }
 

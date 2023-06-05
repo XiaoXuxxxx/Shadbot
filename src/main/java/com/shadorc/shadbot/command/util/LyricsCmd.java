@@ -17,8 +17,8 @@ import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.StringUtil;
 import discord4j.core.object.Embed;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
@@ -50,7 +50,7 @@ public class LyricsCmd extends Cmd {
         this.addOption(option -> option.name("music")
                 .description("Search lyrics for a music or for the music currently playing")
                 .required(false)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
     }
 
     @Override

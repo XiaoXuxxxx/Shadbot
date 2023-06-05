@@ -3,7 +3,7 @@ package com.shadorc.shadbot.command.owner;
 import com.shadorc.shadbot.command.CommandException;
 import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.object.Emoji;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import static com.shadorc.shadbot.Shadbot.DEFAULT_LOGGER;
@@ -16,11 +16,11 @@ public class EnableCommandCmd extends SubCmd {
         this.addOption(option -> option.name("command")
                 .description("The command to enable/disable")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
         this.addOption(option -> option.name("enabled")
                 .description("True to enable, false to disable")
                 .required(true)
-                .type(ApplicationCommandOptionType.BOOLEAN.getValue()));
+                .type(ApplicationCommandOption.Type.BOOLEAN.getValue()));
     }
 
     @Override

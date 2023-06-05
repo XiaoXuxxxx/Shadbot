@@ -6,7 +6,7 @@ import com.shadorc.shadbot.database.premium.RelicType;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.StringUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class GenerateRelicCmd extends SubCmd {
@@ -16,7 +16,7 @@ public class GenerateRelicCmd extends SubCmd {
         this.addOption(option -> option.name("type")
                 .description("Relic type")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(RelicType.class)));
     }
 

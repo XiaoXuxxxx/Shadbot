@@ -7,7 +7,7 @@ import com.shadorc.shadbot.music.GuildMusic;
 import com.shadorc.shadbot.music.TrackScheduler;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class RepeatCmd extends Cmd {
@@ -17,7 +17,7 @@ public class RepeatCmd extends Cmd {
         this.addOption(option -> option.name("mode")
                 .description("none/song/playlist (disable repetition or repeat the current song/playlist)")
                 .required(false)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(TrackScheduler.RepeatMode.class)));
     }
 

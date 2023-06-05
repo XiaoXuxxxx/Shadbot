@@ -4,9 +4,9 @@ import com.shadorc.shadbot.command.CommandException;
 import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.rest.http.client.ClientException;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import reactor.core.publisher.Mono;
 
@@ -18,11 +18,11 @@ public class SendMessageCmd extends SubCmd {
         this.addOption(option -> option.name("user")
                 .description("The user to send a message to")
                 .required(true)
-                .type(ApplicationCommandOptionType.USER.getValue()));
+                .type(ApplicationCommandOption.Type.USER.getValue()));
         this.addOption(option -> option.name("message")
                 .description("The message to send")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
     }
 
     @Override

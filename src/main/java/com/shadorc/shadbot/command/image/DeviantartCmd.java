@@ -16,8 +16,8 @@ import com.shadorc.shadbot.object.RequestHelper;
 import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.RandUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -40,7 +40,7 @@ public class DeviantartCmd extends SubCmd {
         this.addOption(option -> option.name("query")
                 .description("Search for an image")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
 
         this.clientId = CredentialManager.get(Credential.DEVIANTART_CLIENT_ID);
         this.apiSecret = CredentialManager.get(Credential.DEVIANTART_API_SECRET);

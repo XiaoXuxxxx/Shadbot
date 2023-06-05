@@ -5,7 +5,7 @@ import com.shadorc.shadbot.core.command.GroupCmd;
 import com.shadorc.shadbot.core.game.GameCmd;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.ShadbotUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class BlackjackCmd extends GameCmd<BlackjackGame> {
@@ -15,7 +15,7 @@ public class BlackjackCmd extends GameCmd<BlackjackGame> {
 
         this.addOption(option -> option.name("bet")
                 .description("Your bet")
-                .type(ApplicationCommandOptionType.INTEGER.getValue())
+                .type(ApplicationCommandOption.Type.INTEGER.getValue())
                 .required(true));
     }
 

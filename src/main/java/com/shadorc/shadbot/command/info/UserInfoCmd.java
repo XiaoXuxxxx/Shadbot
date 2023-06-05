@@ -8,10 +8,10 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.FormatUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.TimeUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Member;
 import discord4j.core.object.entity.Role;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 import reactor.function.TupleUtils;
 
@@ -28,7 +28,7 @@ public class UserInfoCmd extends SubCmd {
     public UserInfoCmd(final GroupCmd groupCmd) {
         super(groupCmd, CommandCategory.INFO, "user", "Show user info");
         this.addOption("user", "If not specified, it will show your info", false,
-                ApplicationCommandOptionType.USER);
+                ApplicationCommandOption.Type.USER);
 
         this.dateFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.MEDIUM);
     }

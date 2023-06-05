@@ -14,8 +14,8 @@ import com.shadorc.shadbot.utils.FormatUtil;
 import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.RandUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 import reactor.function.TupleUtils;
 
@@ -33,7 +33,7 @@ public class WallhavenCmd extends SubCmd {
 
     public WallhavenCmd(final GroupCmd groupCmd) {
         super(groupCmd, CommandCategory.IMAGE, "wallhaven", "Search random wallpaper from Wallhaven");
-        this.addOption("query", "Search for a wallpaper", false, ApplicationCommandOptionType.STRING);
+        this.addOption("query", "Search for a wallpaper", false, ApplicationCommandOption.Type.STRING);
 
         this.apiKey = CredentialManager.get(Credential.WALLHAVEN_API_KEY);
     }

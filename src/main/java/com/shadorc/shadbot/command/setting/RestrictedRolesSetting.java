@@ -7,8 +7,8 @@ import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.EnumUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
 import discord4j.common.util.Snowflake;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Role;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.HashSet;
@@ -33,21 +33,21 @@ public class RestrictedRolesSetting extends SubCmd {
         this.addOption(option -> option.name("action")
                 .description("Whether to add or remove a role from the restricted ones")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Action.class)));
         this.addOption(option -> option.name("type")
                 .description("Restrict a command or a category")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Type.class)));
         this.addOption(option -> option.name("name")
                 .description("The name of the command/category")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
         this.addOption(option -> option.name("role")
                 .description("The role")
                 .required(true)
-                .type(ApplicationCommandOptionType.ROLE.getValue()));
+                .type(ApplicationCommandOption.Type.ROLE.getValue()));
     }
 
     @Override

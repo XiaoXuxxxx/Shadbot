@@ -10,7 +10,7 @@ import com.shadorc.shadbot.music.TrackScheduler;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.NumberUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -23,7 +23,7 @@ public class VolumeCmd extends Cmd {
                 .description("Volume to set, must be between %d%% and %d%%"
                         .formatted(Config.VOLUME_MIN, Config.VOLUME_MAX))
                 .required(false)
-                .type(ApplicationCommandOptionType.INTEGER.getValue()));
+                .type(ApplicationCommandOption.Type.INTEGER.getValue()));
     }
 
     @Override

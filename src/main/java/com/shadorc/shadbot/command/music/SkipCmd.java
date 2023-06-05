@@ -8,8 +8,8 @@ import com.shadorc.shadbot.core.ratelimiter.RateLimiter;
 import com.shadorc.shadbot.music.GuildMusic;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.NumberUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Message;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
@@ -22,7 +22,7 @@ public class SkipCmd extends Cmd {
                 "Skip current music and play the next one or directly skip to a music in the playlist");
         this.setRateLimiter(new RateLimiter(1, Duration.ofSeconds(1)));
         this.addOption("index", "The index of the music in the playlist to play",
-                false, ApplicationCommandOptionType.INTEGER);
+                false, ApplicationCommandOption.Type.INTEGER);
     }
 
     @Override

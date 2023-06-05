@@ -8,7 +8,7 @@ import com.shadorc.shadbot.database.DatabaseManager;
 import com.shadorc.shadbot.database.premium.RelicType;
 import com.shadorc.shadbot.object.Emoji;
 import discord4j.common.util.Snowflake;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -22,7 +22,7 @@ public class ActivateRelicCmd extends SubCmd {
         this.addOption(option -> option.name("relic")
                 .description("The relic to activate")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
     }
 
     @Override

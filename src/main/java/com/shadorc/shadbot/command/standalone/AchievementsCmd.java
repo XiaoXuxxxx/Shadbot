@@ -9,9 +9,9 @@ import com.shadorc.shadbot.database.users.entity.DBUser;
 import com.shadorc.shadbot.database.users.entity.achievement.Achievement;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Member;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.EnumSet;
@@ -24,7 +24,7 @@ public class AchievementsCmd extends Cmd {
         this.addOption(option -> option.name("user")
                 .description("If not specified, it will show your achievements")
                 .required(false)
-                .type(ApplicationCommandOptionType.USER.getValue()));
+                .type(ApplicationCommandOption.Type.USER.getValue()));
     }
 
     @Override

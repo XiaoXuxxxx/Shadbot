@@ -9,8 +9,8 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.object.RequestHelper;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.StringUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import reactor.core.publisher.Mono;
@@ -24,10 +24,10 @@ public class TranslateCmd extends Cmd {
     public TranslateCmd() {
         super(CommandCategory.UTILS, "translate", "Translate a text");
         this.addOption("source_lang", "Source language, 'auto' to automatically detect",
-                true, ApplicationCommandOptionType.STRING);
+                true, ApplicationCommandOption.Type.STRING);
         this.addOption("destination_lang", "Destination language", true,
-                ApplicationCommandOptionType.STRING);
-        this.addOption("text", "The text to translate", true, ApplicationCommandOptionType.STRING);
+                ApplicationCommandOption.Type.STRING);
+        this.addOption("text", "The text to translate", true, ApplicationCommandOption.Type.STRING);
     }
 
     @Override

@@ -6,8 +6,8 @@ import com.shadorc.shadbot.core.i18n.I18nContext;
 import com.shadorc.shadbot.data.Config;
 import com.shadorc.shadbot.database.guilds.entity.Settings;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
@@ -23,7 +23,7 @@ public class HelpCmd extends Cmd {
 
     public HelpCmd() {
         super(CommandCategory.INFO, "help", "Show the list of available commands");
-        this.addOption("command", "Show help about a specific command", false, ApplicationCommandOptionType.STRING);
+        this.addOption("command", "Show help about a specific command", false, ApplicationCommandOption.Type.STRING);
     }
 
     @Override

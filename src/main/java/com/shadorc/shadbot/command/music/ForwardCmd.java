@@ -9,7 +9,7 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
 import com.shadorc.shadbot.utils.TimeUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
@@ -21,7 +21,7 @@ public class ForwardCmd extends Cmd {
         this.addOption("time",
                 "Number of seconds or formatted time (e.g. 72 or 1m12s)",
                 true,
-                ApplicationCommandOptionType.STRING);
+                ApplicationCommandOption.Type.STRING);
     }
 
     @Override

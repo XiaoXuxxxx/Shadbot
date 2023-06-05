@@ -15,8 +15,8 @@ import com.shadorc.shadbot.object.RequestHelper;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.Exceptions;
 import reactor.core.publisher.Mono;
 
@@ -39,9 +39,9 @@ public class FortniteCmd extends SubCmd {
         this.addOption(option -> option.name("platform")
                 .description("User's platform")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Platform.class)));
-        this.addOption("username", "Epic nickname", true, ApplicationCommandOptionType.STRING);
+        this.addOption("username", "Epic nickname", true, ApplicationCommandOption.Type.STRING);
 
         this.cachedValues = MultiValueCache.Builder.<String, FortniteResponse>create()
                 .withTtl(Config.CACHE_TTL)

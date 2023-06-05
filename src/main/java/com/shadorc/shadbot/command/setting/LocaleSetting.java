@@ -4,7 +4,7 @@ import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.core.i18n.I18nManager;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class LocaleSetting extends SubCmd {
 
         this.addOption(option -> option.name("value")
                 .description("The default language of the server")
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .required(true)
                 .choices(DiscordUtil.toOptions(locales)));
     }

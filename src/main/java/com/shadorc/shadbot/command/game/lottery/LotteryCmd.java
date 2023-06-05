@@ -17,10 +17,10 @@ import com.shadorc.shadbot.utils.FormatUtil;
 import com.shadorc.shadbot.utils.NumberUtil;
 import com.shadorc.shadbot.utils.TimeUtil;
 import discord4j.core.GatewayDiscordClient;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.rest.http.client.ClientException;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import reactor.bool.BooleanUtils;
 import reactor.core.publisher.Flux;
@@ -44,7 +44,7 @@ public class LotteryCmd extends SubCmd {
         this.addOption(option -> option.name("number")
                 .description("The number you bet on")
                 .required(false)
-                .type(ApplicationCommandOptionType.INTEGER.getValue()));
+                .type(ApplicationCommandOption.Type.INTEGER.getValue()));
     }
 
     @Override

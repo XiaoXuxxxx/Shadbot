@@ -11,8 +11,8 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.EnumUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.StringUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import net.aksingh.owmjapis.api.APIException;
 import net.aksingh.owmjapis.core.OWM;
@@ -34,8 +34,8 @@ public class WeatherCmd extends Cmd {
 
     public WeatherCmd() {
         super(CommandCategory.UTILS, "weather", "Search weather report for a city");
-        this.addOption("city", "The city", true, ApplicationCommandOptionType.STRING);
-        this.addOption("country", "The country", false, ApplicationCommandOptionType.STRING);
+        this.addOption("city", "The city", true, ApplicationCommandOption.Type.STRING);
+        this.addOption("country", "The country", false, ApplicationCommandOption.Type.STRING);
 
         this.dateFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.MEDIUM);
         final String apiKey = CredentialManager.get(Credential.OPENWEATHERMAP_API_KEY);

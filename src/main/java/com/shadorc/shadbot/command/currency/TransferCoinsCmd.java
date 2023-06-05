@@ -9,7 +9,7 @@ import com.shadorc.shadbot.database.DatabaseManager;
 import com.shadorc.shadbot.database.guilds.entity.DBMember;
 import com.shadorc.shadbot.object.Emoji;
 import discord4j.common.util.Snowflake;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class TransferCoinsCmd extends Cmd {
@@ -19,11 +19,11 @@ public class TransferCoinsCmd extends Cmd {
         this.addOption(option -> option.name("coins")
                 .description("Number of coins to transfer")
                 .required(true)
-                .type(ApplicationCommandOptionType.INTEGER.getValue()));
+                .type(ApplicationCommandOption.Type.INTEGER.getValue()));
         this.addOption(option -> option.name("user")
                 .description("User to transfer coins to")
                 .required(true)
-                .type(ApplicationCommandOptionType.USER.getValue()));
+                .type(ApplicationCommandOption.Type.USER.getValue()));
     }
 
     @Override

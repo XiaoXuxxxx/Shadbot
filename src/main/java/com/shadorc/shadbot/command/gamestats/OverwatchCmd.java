@@ -17,8 +17,8 @@ import com.shadorc.shadbot.object.RequestHelper;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 import reactor.function.TupleUtils;
 
@@ -56,12 +56,12 @@ public class OverwatchCmd extends SubCmd {
         this.addOption(option -> option.name("platform")
                 .description("User's platform")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Platform.class)));
         this.addOption(option -> option.name("battletag")
                 .description("User's battletag, case sensitive")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
 
         this.cachedValues = MultiValueCache.Builder.<String, OverwatchProfile>create()
                 .withTtl(Config.CACHE_TTL)

@@ -5,7 +5,7 @@ import com.shadorc.shadbot.core.command.CommandPermission;
 import com.shadorc.shadbot.core.command.GroupCmd;
 import com.shadorc.shadbot.core.command.SubCmd;
 import discord4j.common.util.Snowflake;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.util.annotation.Nullable;
 
 import java.util.Map;
@@ -15,7 +15,7 @@ public abstract class GameCmd<G extends Game> extends SubCmd implements GameList
 
     private final Map<Snowflake, G> managers;
 
-    protected GameCmd(GroupCmd groupCmd, String name, String description, @Nullable ApplicationCommandOptionType type) {
+    protected GameCmd(GroupCmd groupCmd, String name, String description, @Nullable ApplicationCommandOption.Type type) {
         super(groupCmd, CommandCategory.GAME, CommandPermission.USER, name, description, type);
         this.setGameRateLimiter();
         this.managers = new ConcurrentHashMap<>();

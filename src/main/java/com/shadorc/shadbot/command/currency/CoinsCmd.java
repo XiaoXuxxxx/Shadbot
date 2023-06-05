@@ -7,7 +7,7 @@ import com.shadorc.shadbot.data.Config;
 import com.shadorc.shadbot.database.DatabaseManager;
 import com.shadorc.shadbot.database.guilds.entity.DBMember;
 import com.shadorc.shadbot.object.Emoji;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class CoinsCmd extends Cmd {
@@ -17,7 +17,7 @@ public class CoinsCmd extends Cmd {
         this.addOption(option -> option.name("user")
                 .description("If not specified, it will show your coins")
                 .required(false)
-                .type(ApplicationCommandOptionType.USER.getValue()));
+                .type(ApplicationCommandOption.Type.USER.getValue()));
     }
 
     @Override

@@ -23,8 +23,8 @@ import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.NumberUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.StringUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class CounterStrikeCmd extends SubCmd {
         this.addOption(option -> option.name("steamid")
                 .description("Steam ID, custom ID or profile URL")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
 
         this.apiKey = CredentialManager.get(Credential.STEAM_API_KEY);
         this.steamIdCache = MultiValueCache.Builder.<String, String>create().withTtl(Config.CACHE_TTL).build();

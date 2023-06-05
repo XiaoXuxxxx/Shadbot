@@ -13,17 +13,17 @@ import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.EnumUtil;
 import discord4j.common.util.Snowflake;
 import discord4j.core.GatewayDiscordClient;
-import discord4j.core.event.domain.interaction.InteractionCreateEvent;
+import discord4j.core.event.domain.interaction.DeferrableInteractionEvent;
 import discord4j.core.object.command.ApplicationCommandInteraction;
 import discord4j.core.object.command.ApplicationCommandInteractionOption;
 import discord4j.core.object.command.ApplicationCommandInteractionOptionValue;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.*;
 import discord4j.core.object.entity.channel.Channel;
 import discord4j.core.object.entity.channel.TextChannel;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
 import discord4j.discordjson.json.ImmutableWebhookMessageEditRequest;
 import discord4j.discordjson.json.WebhookExecuteRequest;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import discord4j.rest.util.MultipartRequest;
 import discord4j.rest.util.Permission;
 import reactor.bool.BooleanUtils;
@@ -39,17 +39,17 @@ import java.util.function.Consumer;
 
 public class Context implements InteractionContext, I18nContext {
 
-    private final InteractionCreateEvent event;
+    private final DeferrableInteractionEvent event;
     private final DBGuild dbGuild;
     private final AtomicLong replyId;
 
-    public Context(InteractionCreateEvent event, DBGuild dbGuild) {
+    public Context(DeferrableInteractionEvent event, DBGuild dbGuild) {
         this.event = event;
         this.dbGuild = dbGuild;
         this.replyId = new AtomicLong();
     }
 
-    public InteractionCreateEvent getEvent() {
+    public DeferrableInteractionEvent getEvent() {
         return this.event;
     }
 
@@ -80,7 +80,7 @@ public class Context implements InteractionContext, I18nContext {
     public Optional<String> getSubCommandGroupName() {
         return DiscordUtil.flattenOptions(this.getCommand())
                 .stream()
-                .filter(option -> option.getType() == ApplicationCommandOptionType.SUB_COMMAND_GROUP)
+                .filter(option -> option.getType() == ApplicationCommandOption.Type.SUB_COMMAND_GROUP)
                 .map(ApplicationCommandInteractionOption::getName)
                 .findFirst();
     }
@@ -88,7 +88,7 @@ public class Context implements InteractionContext, I18nContext {
     public Optional<String> getSubCommandName() {
         return DiscordUtil.flattenOptions(this.getCommand())
                 .stream()
-                .filter(option -> option.getType() == ApplicationCommandOptionType.SUB_COMMAND)
+                .filter(option -> option.getType() == ApplicationCommandOption.Type.SUB_COMMAND)
                 .map(ApplicationCommandInteractionOption::getName)
                 .findFirst();
     }

@@ -7,8 +7,8 @@ import com.shadorc.shadbot.core.game.GameCmd;
 import com.shadorc.shadbot.core.game.player.Player;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.discordjson.json.ApplicationCommandOptionData;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -28,17 +28,17 @@ public class HangmanCmd extends GameCmd<HangmanGame> {
     private final WordsList hardWords;
 
     public HangmanCmd(final GroupCmd groupCmd) {
-        super(groupCmd, "hangman", "Start or join a Hangman game", ApplicationCommandOptionType.SUB_COMMAND_GROUP);
+        super(groupCmd, "hangman", "Start or join a Hangman game", ApplicationCommandOption.Type.SUB_COMMAND_GROUP);
         this.addOption(option -> option.name(JOIN_SUB_COMMAND)
                 .description("Join a Hangman game")
-                .type(ApplicationCommandOptionType.SUB_COMMAND.getValue()));
+                .type(ApplicationCommandOption.Type.SUB_COMMAND.getValue()));
         this.addOption(option -> option.name(CREATE_SUB_COMMAND)
                 .description("Start a Hangman game")
-                .type(ApplicationCommandOptionType.SUB_COMMAND.getValue())
+                .type(ApplicationCommandOption.Type.SUB_COMMAND.getValue())
                 .addOption(ApplicationCommandOptionData.builder().name("difficulty")
                         .description("The difficulty of the word to find, easy by default")
                         .required(false)
-                        .type(ApplicationCommandOptionType.STRING.getValue())
+                        .type(ApplicationCommandOption.Type.STRING.getValue())
                         .choices(DiscordUtil.toOptions(Difficulty.class))
                         .build()));
 

@@ -6,8 +6,8 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
 import discord4j.common.util.Snowflake;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Role;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import discord4j.rest.util.Permission;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -29,13 +29,13 @@ public class AutoRolesSetting extends SubCmd {
         this.addOption(option -> option.name("action")
                 .description("Whether to add or remove a role from the auto ones")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Action.class)));
-        this.addOption("role1", "The first role", true, ApplicationCommandOptionType.ROLE);
-        this.addOption("role2", "The second role", false, ApplicationCommandOptionType.ROLE);
-        this.addOption("role3", "The third role", false, ApplicationCommandOptionType.ROLE);
-        this.addOption("role4", "The fourth role", false, ApplicationCommandOptionType.ROLE);
-        this.addOption("role5", "The fifth role", false, ApplicationCommandOptionType.ROLE);
+        this.addOption("role1", "The first role", true, ApplicationCommandOption.Type.ROLE);
+        this.addOption("role2", "The second role", false, ApplicationCommandOption.Type.ROLE);
+        this.addOption("role3", "The third role", false, ApplicationCommandOption.Type.ROLE);
+        this.addOption("role4", "The fourth role", false, ApplicationCommandOption.Type.ROLE);
+        this.addOption("role5", "The fifth role", false, ApplicationCommandOption.Type.ROLE);
     }
 
     @Override

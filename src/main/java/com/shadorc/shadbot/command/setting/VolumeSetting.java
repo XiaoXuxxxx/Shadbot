@@ -5,7 +5,7 @@ import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.data.Config;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.NumberUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 public class VolumeSetting extends SubCmd {
@@ -21,7 +21,7 @@ public class VolumeSetting extends SubCmd {
                 .description("New default volume (min:%d / max:%d / default:%d)"
                         .formatted(MIN_VOLUME, MAX_VOLUME, Config.DEFAULT_VOLUME))
                 .required(true)
-                .type(ApplicationCommandOptionType.INTEGER.getValue()));
+                .type(ApplicationCommandOption.Type.INTEGER.getValue()));
     }
 
     @Override

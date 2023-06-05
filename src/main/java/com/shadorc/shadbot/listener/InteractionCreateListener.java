@@ -8,20 +8,20 @@ import com.shadorc.shadbot.data.Telemetry;
 import com.shadorc.shadbot.database.DatabaseManager;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.ReactorUtil;
-import discord4j.core.event.domain.interaction.InteractionCreateEvent;
+import discord4j.core.event.domain.interaction.DeferrableInteractionEvent;
 import discord4j.core.object.entity.channel.TextChannel;
 import discord4j.rest.util.Permission;
 import reactor.core.publisher.Mono;
 
-public class InteractionCreateListener implements EventListener<InteractionCreateEvent> {
+public class InteractionCreateListener implements EventListener<DeferrableInteractionEvent> {
 
     @Override
-    public Class<InteractionCreateEvent> getEventType() {
-        return InteractionCreateEvent.class;
+    public Class<DeferrableInteractionEvent> getEventType() {
+        return DeferrableInteractionEvent.class;
     }
 
     @Override
-    public Mono<?> execute(InteractionCreateEvent event) {
+    public Mono<?> execute(DeferrableInteractionEvent event) {
         Telemetry.INTERACTING_USERS.add(event.getInteraction().getUser().getId().asLong());
 
         if (event.getInteraction().getGuildId().isEmpty()) {

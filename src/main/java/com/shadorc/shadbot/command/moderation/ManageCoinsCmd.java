@@ -10,9 +10,9 @@ import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
 import com.shadorc.shadbot.utils.NumberUtil;
 import discord4j.common.util.Snowflake;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Guild;
 import discord4j.core.object.entity.Member;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
@@ -33,20 +33,20 @@ public class ManageCoinsCmd extends SubCmd {
 
         this.addOption(option -> option.name("action")
                 .description("Whether to add, remove or reset coins")
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .required(true)
                 .choices(DiscordUtil.toOptions(Action.class)));
         this.addOption(option -> option.name("coins")
                 .description("The amount of coins to add/remove")
-                .type(ApplicationCommandOptionType.INTEGER.getValue())
+                .type(ApplicationCommandOption.Type.INTEGER.getValue())
                 .required(false));
         this.addOption(option -> option.name("user")
                 .description("The user")
-                .type(ApplicationCommandOptionType.USER.getValue())
+                .type(ApplicationCommandOption.Type.USER.getValue())
                 .required(false));
         this.addOption(option -> option.name("role")
                 .description("The role")
-                .type(ApplicationCommandOptionType.ROLE.getValue())
+                .type(ApplicationCommandOption.Type.ROLE.getValue())
                 .required(false));
     }
 

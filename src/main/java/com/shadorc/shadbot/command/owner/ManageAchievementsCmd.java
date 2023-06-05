@@ -7,8 +7,8 @@ import com.shadorc.shadbot.database.users.entity.achievement.Achievement;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.rest.http.client.ClientException;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import reactor.core.publisher.Mono;
 
@@ -24,14 +24,14 @@ public class ManageAchievementsCmd extends SubCmd {
         this.addOption(option -> option.name("action")
                 .description("Whether to add or remove an achievment")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Action.class)));
         this.addOption(option -> option.name("achievement")
                 .description("The achievement")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Achievement.class)));
-        this.addOption("user", "The user", true, ApplicationCommandOptionType.USER);
+        this.addOption("user", "The user", true, ApplicationCommandOption.Type.USER);
     }
 
     @Override

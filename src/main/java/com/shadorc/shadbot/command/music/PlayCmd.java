@@ -14,8 +14,8 @@ import com.shadorc.shadbot.music.MusicManager;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.NetUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.User;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import discord4j.voice.retry.VoiceGatewayException;
 import reactor.core.publisher.Mono;
 
@@ -31,15 +31,15 @@ public class PlayCmd extends Cmd {
         this.addOption(option -> option.name("music")
                 .description("The url, search terms or playlist")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
         this.addOption(option -> option.name("first")
                 .description("Add the song first in the playlist")
                 .required(false)
-                .type(ApplicationCommandOptionType.BOOLEAN.getValue()));
+                .type(ApplicationCommandOption.Type.BOOLEAN.getValue()));
         this.addOption(option -> option.name("soundcloud")
                 .description("Search on SoundCloud")
                 .required(false)
-                .type(ApplicationCommandOptionType.BOOLEAN.getValue()));
+                .type(ApplicationCommandOption.Type.BOOLEAN.getValue()));
     }
 
     @Override

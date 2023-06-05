@@ -7,8 +7,8 @@ import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
 import com.shadorc.shadbot.utils.FormatUtil;
 import discord4j.common.util.Snowflake;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.channel.Channel;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -28,29 +28,29 @@ public class AllowedChannelsSetting extends SubCmd {
 
         this.addOption(option -> option.name("action")
                 .description("Whether to add or remove a channel from the allowed ones")
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .required(true)
                 .choices(DiscordUtil.toOptions(Action.class)));
         this.addOption(option -> option.name("channel1")
                 .description("The first channel")
                 .required(true)
-                .type(ApplicationCommandOptionType.CHANNEL.getValue()));
+                .type(ApplicationCommandOption.Type.CHANNEL.getValue()));
         this.addOption(option -> option.name("channel2")
                 .description("The second channel")
                 .required(false)
-                .type(ApplicationCommandOptionType.CHANNEL.getValue()));
+                .type(ApplicationCommandOption.Type.CHANNEL.getValue()));
         this.addOption(option -> option.name("channel3")
                 .description("The third channel")
                 .required(false)
-                .type(ApplicationCommandOptionType.CHANNEL.getValue()));
+                .type(ApplicationCommandOption.Type.CHANNEL.getValue()));
         this.addOption(option -> option.name("channel4")
                 .description("The fourth channel")
                 .required(false)
-                .type(ApplicationCommandOptionType.CHANNEL.getValue()));
+                .type(ApplicationCommandOption.Type.CHANNEL.getValue()));
         this.addOption(option -> option.name("channel5")
                 .description("The fifth channel")
                 .required(false)
-                .type(ApplicationCommandOptionType.CHANNEL.getValue()));
+                .type(ApplicationCommandOption.Type.CHANNEL.getValue()));
     }
 
     @Override

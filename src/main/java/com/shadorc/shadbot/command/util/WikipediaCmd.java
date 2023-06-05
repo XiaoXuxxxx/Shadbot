@@ -12,8 +12,9 @@ import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
 import com.shadorc.shadbot.utils.StringUtil;
 import discord4j.core.object.Embed;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
+
 import reactor.core.publisher.Mono;
 
 import java.util.Locale;
@@ -24,7 +25,7 @@ public class WikipediaCmd extends Cmd {
 
     public WikipediaCmd() {
         super(CommandCategory.UTILS, "wikipedia", "Search for Wikipedia article");
-        this.addOption("word", "The word to search", true, ApplicationCommandOptionType.STRING);
+        this.addOption("word", "The word to search", true, ApplicationCommandOption.Type.STRING);
     }
 
     @Override

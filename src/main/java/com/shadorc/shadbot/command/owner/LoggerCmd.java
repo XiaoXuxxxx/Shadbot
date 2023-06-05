@@ -6,7 +6,7 @@ import com.shadorc.shadbot.command.CommandException;
 import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 
@@ -29,11 +29,11 @@ public class LoggerCmd extends SubCmd {
         this.addOption(option -> option.name("name")
                 .description("Can be 'root' to change root logger")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue()));
+                .type(ApplicationCommandOption.Type.STRING.getValue()));
         this.addOption(option -> option.name("level")
                 .description("The new logger level")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(LogLevel.class)));
     }
 

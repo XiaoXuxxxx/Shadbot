@@ -5,7 +5,7 @@ import com.shadorc.shadbot.core.command.GroupCmd;
 import com.shadorc.shadbot.core.game.GameCmd;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
-import discord4j.rest.util.ApplicationCommandOptionType;
+import discord4j.core.object.command.ApplicationCommandOption;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
@@ -48,7 +48,7 @@ public class TriviaCmd extends GameCmd<TriviaGame> {
         this.addOption(option -> option.name("category")
                 .description("The category of the question")
                 .required(false)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(CATEGORIES.keySet())));
     }
 

@@ -5,9 +5,9 @@ import com.shadorc.shadbot.core.command.*;
 import com.shadorc.shadbot.database.guilds.bean.setting.AutoMessageBean;
 import com.shadorc.shadbot.object.Emoji;
 import com.shadorc.shadbot.utils.DiscordUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.TextChannel;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
@@ -29,15 +29,15 @@ public class AutoMessagesSetting extends SubCmd {
         this.addOption(option -> option.name("action")
                 .description("Whether to enable or disable automatic messages")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Action.class)));
         this.addOption(option -> option.name("type")
                 .description("The type of automatic message to configure")
                 .required(true)
-                .type(ApplicationCommandOptionType.STRING.getValue())
+                .type(ApplicationCommandOption.Type.STRING.getValue())
                 .choices(DiscordUtil.toOptions(Type.class)));
-        this.addOption("message", "The message to automatically send", false, ApplicationCommandOptionType.STRING);
-        this.addOption("channel", "The channel in which send the automatic message", false, ApplicationCommandOptionType.CHANNEL);
+        this.addOption("message", "The message to automatically send", false, ApplicationCommandOption.Type.STRING);
+        this.addOption("channel", "The channel in which send the automatic message", false, ApplicationCommandOption.Type.CHANNEL);
     }
 
     @Override

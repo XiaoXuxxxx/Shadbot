@@ -2,11 +2,11 @@ package com.shadorc.shadbot.core.command;
 
 import com.shadorc.shadbot.core.ratelimiter.RateLimiter;
 import com.shadorc.shadbot.object.help.CommandHelpBuilder;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
 import discord4j.discordjson.json.ApplicationCommandOptionData;
 import discord4j.discordjson.json.ApplicationCommandRequest;
 import discord4j.discordjson.json.ImmutableApplicationCommandOptionData;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 import reactor.util.annotation.Nullable;
 
@@ -31,14 +31,14 @@ public abstract class Cmd {
     private final String description;
     private final List<ApplicationCommandOptionData> options;
     @Nullable
-    private final ApplicationCommandOptionType type;
+    private final ApplicationCommandOption.Type type;
 
     @Nullable
     private RateLimiter rateLimiter;
     private boolean isEnabled;
 
     protected Cmd(CommandCategory category, CommandPermission permission, String name, String description,
-                  @Nullable ApplicationCommandOptionType type) {
+                  @Nullable ApplicationCommandOption.Type type) {
         this.category = category;
         this.permission = permission;
         this.name = name;
@@ -91,7 +91,7 @@ public abstract class Cmd {
         return Collections.unmodifiableList(this.options);
     }
 
-    public Optional<ApplicationCommandOptionType> getType() {
+    public Optional<ApplicationCommandOption.Type> getType() {
         return Optional.ofNullable(this.type);
     }
 
@@ -117,7 +117,7 @@ public abstract class Cmd {
 
     // TODO: Remove
     @Deprecated
-    public void addOption(String name, String description, boolean required, ApplicationCommandOptionType type) {
+    public void addOption(String name, String description, boolean required, ApplicationCommandOption.Type type) {
         this.addOption(option -> option.name(name).description(description).required(required).type(type.getValue()));
     }
 

@@ -11,8 +11,8 @@ import com.shadorc.shadbot.object.RequestHelper;
 import com.shadorc.shadbot.utils.NetUtil;
 import com.shadorc.shadbot.utils.RandUtil;
 import com.shadorc.shadbot.utils.ShadbotUtil;
+import discord4j.core.object.command.ApplicationCommandOption;
 import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
-import discord4j.rest.util.ApplicationCommandOptionType;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class Rule34Cmd extends Cmd {
 
     public Rule34Cmd() {
         super(CommandCategory.IMAGE, "rule34", "Search random image from Rule34");
-        this.addOption("query", "Search for a Rule34 image", true, ApplicationCommandOptionType.STRING);
+        this.addOption("query", "Search for a Rule34 image", true, ApplicationCommandOption.Type.STRING);
     }
 
     @Override
